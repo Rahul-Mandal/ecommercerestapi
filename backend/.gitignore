@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+env/
+.venv/
+venv/
+
+# Environment variables
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS and Linux files
+.DS_Store
+*.swp
+
+# Log and cache files
+*.log
+*.sqlite3
+*.db
+.cache/
+coverage/
+dist/
+build/
+*.egg-info/
+
+# PDF output (if generated dynamically)
+invoice_report.pdf
+
+# Test results
+htmlcov/
+*.cover
+*.py,cover
+.tox/
+.nox/
+.pytest_cache/
