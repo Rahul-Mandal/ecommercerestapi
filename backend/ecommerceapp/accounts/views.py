@@ -142,4 +142,5 @@ class ProfileView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
+        print(dir(request))
         return Response({"message": "Profile"})
