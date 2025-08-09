@@ -2,11 +2,12 @@ from rest_framework import serializers
 from .models import User
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.conf import settings
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     class Meta:
-        model = User
+        model = settings.AUTH_USER_MODEL
         fields = ['email', 'password', 'role']
         extra_kwargs = {'password': {'write_only': True}}
 
@@ -31,5 +32,5 @@ class LoginSerializer(serializers.Serializer):
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = settings.AUTH_USER_MODEL
         fields = ['id', 'email', 'role']
