@@ -13,10 +13,14 @@ class CartItemSerializer(serializers.ModelSerializer):
         model = CartItem
         fields = ['id', 'product', 'product_id', 'quantity']
 
+class AddToCartSerializer(serializers.Serializer):
+    product_id = serializers.IntegerField()
+    quantity = serializers.IntegerField(min_value=1)
+
 class OrderSerializer(serializers.ModelSerializer):
     items = CartItemSerializer(many=True, read_only=True)
 
     class Meta:
         model = Order
-        fields = ['id', 'user', 'items', 'created_at', 'is_paid']
+        fields = ['id', 'user', 'items', 'created_at', 'status', 'is_paid']
         read_only_fields = ['user']

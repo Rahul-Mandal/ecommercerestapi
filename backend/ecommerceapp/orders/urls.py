@@ -1,8 +1,13 @@
-from rest_framework.routers import DefaultRouter
-from .views import CartItemViewSet, OrderViewSet
+from django.urls import path
+from .views import AddToCartView, OrderViewSet
+# from rest_framework.routers import DefaultRouter
 
-router = DefaultRouter()
-router.register(r'cart', CartItemViewSet, basename='cart')
-router.register(r'orders', OrderViewSet, basename='orders')
+# router = DefaultRouter()
+# router.register(r'order', OrderViewSet, basename='order')
 
-urlpatterns = router.urls
+# urlpatterns = router.urls
+
+urlpatterns = [
+    path('cart/add/', AddToCartView.as_view(), name='add_to_cart'),
+    path('order/', OrderViewSet.as_view(), name='order')
+]
